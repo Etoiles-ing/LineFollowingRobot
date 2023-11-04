@@ -113,7 +113,7 @@ class Graph:
               
 
 my_graph = Graph()
-with open('log_2023_05_05_20_12_05_472783.csv',mode = 'r' ,newline='') as csvfile:
+with open('log_2023_05_26_17_01_39_639609.csv',mode = 'r' ,newline='') as csvfile:
        reader = csv.reader(csvfile)
        next(reader)
        my_list = list(reader)

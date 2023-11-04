@@ -28,7 +28,6 @@ class RobotFollower(Robot):
 	 
 	def follow_driving(self, policy: int):
 		previous_speed = 0
-		self.data_log = DataLog('speed33', 'distance33')
 		while(1):
 			self.distance = self.ultrasonic_sensor.distance()
 			previous_speed = self.speed
@@ -45,13 +44,6 @@ class RobotFollower(Robot):
 		else:
 			print("Wrong policy, please enter a number between 0 and 3")
 			return ValueError
-	
-	def record_values(self, speed, distance):
-		#self.data_log.log(BREAK_DISTANCE, ACCELERATION_DISTANCE, BREAK_FACTOR, ACCELERATION_FACTOR)
-		self.data_log.log(speed, distance)
-		#print(self.data_log)
-		# if len(self.speed_tab)% RECORD_VALUE == 0:
-		# 	print(self.speed_tab)
 
 			
  
@@ -75,14 +67,14 @@ class RobotFollower(Robot):
 
 	def wireless(self, distance):
 		# This is the name of the remote EV3 or PC we are connecting to.
-		SERVER = "ev3dev"
+		serveur = "ev3dev"
 
 		# Instanciate this robot as a Client
 		client = BluetoothMailboxClient()
 		mbox = TextMailbox("SpaceTab", client)
 
 		print("Establishing connection...")
-		client.connect(SERVER)
+		client.connect(serveur) #SERVER
 		print("Connected !")
 
 		# Speed equals to LEAD robot's speed
